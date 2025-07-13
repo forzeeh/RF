@@ -1,0 +1,112 @@
+@use '../../styles/colors' as *;
+
+.counter {
+  &-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+    padding: $spacing-xl;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &-display {
+    .counter-value {
+      font-size: $font-size-display;
+      font-weight: bold;
+      color: $fontcolor;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &-actions {
+    display: flex;
+    gap: $spacing-medium;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &-ball {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: $btn-primary;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 2px;
+    animation: fall 16s linear infinite;
+    z-index: 100;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.exploded {
+      animation: fall 16s linear infinite, explode 0.5s ease-out forwards;
+    }
+  }
+}
+
+.victory-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: $fontcolor;
+  padding: $spacing-large;
+  border-radius: $border-radius-large;
+  font-size: $font-size-xl;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1000;
+  animation: fadeInScale 0.5s ease-out;
+  box-shadow: $shadow-large;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-medium;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh - 50px));
+    opacity: 0;
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,263 @@
+@use '../../styles/colors' as *;
+@use 'sass:color';
+
+// Mixins
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin cardStyle {
+  background-color: $background-white;
+  border-radius: $border-radius-medium;
+  box-shadow: $shadow-light;
+  padding: $spacing-medium;
+  margin-bottom: $spacing-medium;
+}
+
+@mixin sectionTitle {
+  font-size: $font-size-xl;
+  font-weight: 600;
+  color: $fontcolor-dark;
+  margin-bottom: $spacing-medium;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: $btn-primary;
+    border-radius: 2px;
+  }
+}
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $background-gray 0%, $background-light 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  // Header section
+  &__header {
+    background: $btn-primary;
+    padding: $spacing-xl;
+    color: $fontcolor;
+    box-shadow: $shadow-medium;
+
+    &__title {
+      font-size: $font-size-display;
+      font-weight: 700;
+      margin-bottom: $spacing-large;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    &__contact {
+      @include flexCenter;
+      justify-content: center;
+      gap: $spacing-xl;
+      flex-wrap: wrap;
+
+      &__item {
+        @include flexCenter;
+        background: rgba(255, 255, 255, 0.1);
+        padding: $spacing-small $spacing-medium;
+        border-radius: $border-radius-large;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: translateY(-2px);
+        }
+
+        &__icon {
+          margin-right: $spacing-small;
+        }
+
+        &__text {
+          font-size: $font-size-base;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  // Resume section
+  &__resume {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-xl;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-xl;
+
+    // Main content
+    &__main {
+      .resume-block {
+        @include cardStyle;
+        border-left: 4px solid transparent;
+        background: linear-gradient(white, white) padding-box, $btn-primary border-box;
+        border-left: 4px solid;
+        border-image: $btn-primary 1;
+
+        &__title {
+          @include sectionTitle;
+        }
+
+        &__subtitle {
+          color: $fontcolor-dark;
+          line-height: 1.7;
+          font-size: $font-size-base;
+          margin-bottom: $spacing-small;
+
+          &--container {
+            @include flexBetween;
+            margin-bottom: $spacing-small;
+          }
+
+          &--years {
+            color: $fontcolor-light;
+            font-size: $font-size-small;
+            font-weight: 500;
+            background: $background-gray;
+            padding: $spacing-xs $spacing-small;
+            border-radius: $border-radius-small;
+          }
+        }
+      }
+    }
+
+    // Sidebar
+    &__sidebar {
+      .personal-details {
+        @include cardStyle;
+        position: sticky;
+        top: $spacing-medium + 30px;
+
+        &__title {
+          @include sectionTitle;
+          text-align: center;
+          margin-bottom: $spacing-large;
+        }
+
+        &__section {
+          margin-bottom: $spacing-large;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &__item {
+          border-bottom: 1px solid $border-color;
+          padding-bottom: $spacing-medium;
+          margin-bottom: $spacing-medium;
+
+          &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+          }
+
+          &__title {
+            font-size: $font-size-small;
+            color: $fontcolor-light;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: $spacing-xs;
+          }
+
+          &__subtitle {
+            color: $fontcolor-dark;
+            font-size: $font-size-base;
+            line-height: 1.5;
+
+            a {
+              color: $focus-color;
+              text-decoration: none;
+              transition: color 0.3s ease;
+
+              &:hover {
+                color: color.adjust($focus-color, $lightness: -10%);
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        &__skills {
+          margin-top: $spacing-medium;
+
+          &__section {
+            margin-bottom: $spacing-medium;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          &__title {
+            font-size: $font-size-large;
+            font-weight: 600;
+            color: $fontcolor-dark;
+            margin-bottom: $spacing-small;
+            text-transform: capitalize;
+          }
+
+          &__item {
+            display: inline-block;
+            background: $background-gray;
+            color: $fontcolor-dark;
+            padding: $spacing-xs $spacing-small;
+            margin: 2px;
+            border-radius: $border-radius-small;
+            font-size: $font-size-small;
+            font-weight: 500;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: $focus-color;
+              color: $fontcolor;
+              transform: translateY(-1px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .home-container {
+    &__header {
+      padding: $spacing-medium;
+
+      &__title {
+        font-size: $font-size-xxl;
+      }
+
+      &__contact {
+        flex-direction: column;
+        gap: $spacing-medium;
+      }
+    }
+
+    &__resume {
+      grid-template-columns: 1fr;
+      padding: $spacing-medium;
+
+      &__sidebar {
+        order: -1;
+      }
+    }
+  }
+}

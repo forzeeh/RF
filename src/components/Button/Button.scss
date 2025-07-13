@@ -1,0 +1,23 @@
+@use '../../styles/colors' as *;
+
+.custom-btn {
+  padding: $spacing-small $spacing-medium;
+  border: none;
+  border-radius: $border-radius-large;
+  background: $btn-primary;
+  color: $fontcolor;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-large;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

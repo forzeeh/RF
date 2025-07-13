@@ -1,0 +1,60 @@
+// Main colors
+$maincolor: #232c42;
+$headercolor: #3e4c65;
+$itemcolor: #e3e3e3;
+
+// Font colors
+$fontcolor: #ffffff;
+$fontcolor-dark: #232c42;
+$fontcolor-light: #666;
+$fontcolor-secondary: #888;
+
+// Interactive colors
+$hover-color: #d0d0d0;
+$active-color: #c0c0c0;
+$focus-color: #667eea;
+
+// Background colors
+$background-primary: #232c42;
+$background-secondary: #3e4c65;
+$background-light: #e3e3e3;
+$background-white: #ffffff;
+$background-gray: #f8f9fa;
+
+// Button colors
+$btn-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$btn-success: #28a745;
+$btn-success-hover: #218838;
+$btn-danger: #dc3545;
+$btn-danger-hover: #c82333;
+
+// Border colors
+$border-color: #e9ecef;
+$border-color-dark: #000000;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-xl: 32px;
+
+// Border radius
+$border-radius: 5px;
+$border-radius-small: 4px;
+$border-radius-medium: 6px;
+$border-radius-large: 8px;
+$border-radius-xl: 12px;
+
+// Shadows
+$shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-large: 0 4px 12px rgba(102, 126, 234, 0.4);
+
+// Typography
+$font-size-small: 0.9rem;
+$font-size-base: 1rem;
+$font-size-large: 1.2rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+$font-size-display: 4rem;

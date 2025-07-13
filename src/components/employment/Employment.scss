@@ -1,0 +1,150 @@
+@use '../../styles/colors' as *;
+
+.employment {
+  border-left: 3px solid $focus-color;
+  padding: $spacing-medium;
+  margin-bottom: $spacing-medium;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: $border-radius-medium;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateX(5px);
+    box-shadow: $shadow-light;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-small;
+    flex-wrap: wrap;
+    gap: $spacing-small;
+
+    &__title {
+      font-weight: 600;
+      color: $fontcolor-dark;
+      font-size: $font-size-large;
+      margin: 0;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    &__date {
+      color: $fontcolor-light;
+      font-size: $font-size-small;
+      font-weight: 500;
+      background: $background-gray;
+      padding: $spacing-xs $spacing-small;
+      border-radius: $border-radius-small;
+      margin: 0;
+      white-space: nowrap;
+    }
+  }
+
+  &__subtitle {
+    color: $fontcolor-secondary;
+    margin-bottom: $spacing-medium;
+    font-size: $font-size-base;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  &__achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+      margin-bottom: $spacing-small;
+      padding-left: $spacing-large;
+      position: relative;
+      line-height: 1.6;
+
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: $spacing-small;
+        top: 2px;
+        color: $focus-color;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__text {
+        color: $fontcolor-dark;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      &__details {
+        list-style: none;
+        padding: 0;
+        margin: $spacing-small 0 0 $spacing-medium;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: $border-radius-small;
+        padding: $spacing-small;
+
+        li {
+          margin-bottom: $spacing-xs;
+          padding-left: $spacing-medium;
+          position: relative;
+          font-size: $font-size-small;
+          color: $fontcolor-secondary;
+          line-height: 1.5;
+
+          &::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: $fontcolor-light;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .employment {
+    padding: $spacing-small;
+
+    &__header {
+      flex-direction: column;
+      gap: $spacing-xs;
+
+      &__title {
+        font-size: $font-size-base;
+        min-width: auto;
+      }
+
+      &__date {
+        align-self: flex-start;
+      }
+    }
+
+    &__achievements {
+      &__item {
+        padding-left: $spacing-medium;
+
+        &::before {
+          left: $spacing-xs;
+        }
+      }
+    }
+  }
+}

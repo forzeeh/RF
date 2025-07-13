@@ -1,0 +1,54 @@
+@use './styles/colors' as *;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+.container {
+  background: $maincolor;
+  min-height: calc(100vh - 50px);
+  color: $fontcolor;
+  padding-top: 50px;
+
+  &__header {
+    width: 100%;
+    height: 50px;
+    background: $headercolor;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    &__item {
+      background: $itemcolor;
+      border-radius: $border-radius;
+      margin-left: $spacing-medium;
+      font-size: 18px;
+      padding: $spacing-small $spacing-medium;
+      cursor: pointer;
+      color: $fontcolor-dark;
+      font-weight: bold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $hover-color;
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        background: $active-color;
+        transform: translateY(0);
+      }
+    }
+  }
+}

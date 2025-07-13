@@ -1,0 +1,148 @@
+@use '../../styles/colors' as *;
+
+.todo {
+  &-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: $spacing-xl;
+  }
+
+  &-title {
+    text-align: center;
+    color: $fontcolor-dark;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-xxl;
+  }
+
+  &-input-section {
+    display: flex;
+    gap: $spacing-medium;
+    margin-bottom: $spacing-xl;
+
+    .todo-input {
+      flex: 1;
+      padding: $spacing-small;
+      border: 2px solid $border-color;
+      border-radius: $border-radius-large;
+      font-size: $font-size-base;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $focus-color;
+      }
+    }
+
+    .todo-add-btn {
+      padding: $spacing-small $spacing-medium;
+      border: none;
+      border-radius: $border-radius-large;
+      background: $btn-primary;
+      color: $fontcolor;
+      font-size: $font-size-base;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-large;
+      }
+    }
+  }
+
+  &-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-medium;
+    padding: $spacing-medium;
+    background: $background-gray;
+    border-radius: $border-radius-large;
+
+    span {
+      font-weight: 600;
+      color: $fontcolor-light;
+    }
+  }
+
+  &-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-xl 0;
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $spacing-medium;
+      margin-bottom: $spacing-small;
+      background: $background-white;
+      border: 1px solid $border-color;
+      border-radius: $border-radius-large;
+      box-shadow: $shadow-light;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: $shadow-medium;
+      }
+
+      &.completed {
+        opacity: 0.7;
+
+        .todo-text {
+          text-decoration: line-through;
+          color: $fontcolor-secondary;
+        }
+      }
+
+      .todo-text {
+        flex: 1;
+        cursor: pointer;
+        user-select: none;
+        font-size: $font-size-base;
+        color: $fontcolor-dark;
+
+        &:hover {
+          color: $focus-color;
+        }
+      }
+
+      .todo-delete-btn {
+        padding: $spacing-small $spacing-medium;
+        border: none;
+        border-radius: $border-radius-medium;
+        background: $btn-danger;
+        color: $fontcolor;
+        font-size: $font-size-small;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: $btn-danger-hover;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  &-clear-btn {
+    display: block;
+    margin: 0 auto;
+    padding: $spacing-small $spacing-medium;
+    border: none;
+    border-radius: $border-radius-large;
+    background: $btn-success;
+    color: $fontcolor;
+    font-size: $font-size-base;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $btn-success-hover;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+    }
+  }
+}
